@@ -3,6 +3,11 @@ from django.contrib import admin
 from main.models import Product, Category
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name')
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('pk', 'name', 'category', 'price')
@@ -10,9 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description',)
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name')
+
 
 
 
